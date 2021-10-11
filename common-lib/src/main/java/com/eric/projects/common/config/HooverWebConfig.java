@@ -8,6 +8,6 @@ import org.springframework.context.annotation.Import;
  * Use this common config for Web App
  */
 @Configuration
-@Import(value = {StaffjoyConfig.class, SentryClientAspect.class,})
-public class StaffjoyWebConfig {
+@Import(value = {HooverConfig.class, SentryClientAspect.class,})
+public class HooverWebConfig {
 }

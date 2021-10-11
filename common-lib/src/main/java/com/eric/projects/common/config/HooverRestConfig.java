@@ -9,6 +9,6 @@ import com.eric.projects.common.error.GlobalExceptionTranslator;
  * Use this common config for Rest API
  */
 @Configuration
-@Import(value = {StaffjoyConfig.class, SentryClientAspect.class, GlobalExceptionTranslator.class})
-public class StaffjoyRestConfig  {
+@Import(value = {HooverConfig.class, SentryClientAspect.class, GlobalExceptionTranslator.class})
+public class HooverRestConfig {
 }

@@ -21,8 +21,8 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 @Configuration
-@EnableConfigurationProperties(StaffjoyProps.class)
-public class StaffjoyConfig implements WebMvcConfigurer {
+@EnableConfigurationProperties(HooverProps.class)
+public class HooverConfig implements WebMvcConfigurer {
 
     @Value("${spring.profiles.active:NA}")
     private String activeProfile;
@@ -31,7 +31,7 @@ public class StaffjoyConfig implements WebMvcConfigurer {
     private String appName;
 
     @Autowired
-    StaffjoyProps staffjoyProps;
+    HooverProps hooverProps;
 
     @Bean
     public ModelMapper modelMapper() {
@@ -46,9 +46,9 @@ public class StaffjoyConfig implements WebMvcConfigurer {
     @Bean
     public SentryClient sentryClient() {
 
-        SentryClient sentryClient = Sentry.init(staffjoyProps.getSentryDsn());
+        SentryClient sentryClient = Sentry.init(hooverProps.getSentryDsn());
         sentryClient.setEnvironment(activeProfile);
-        sentryClient.setRelease(staffjoyProps.getDeployEnv());
+        sentryClient.setRelease(hooverProps.getDeployEnv());
         sentryClient.addTag("service", appName);
 
         return sentryClient;
