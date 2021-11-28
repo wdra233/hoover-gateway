@@ -1,0 +1,14 @@
+package com.eric.projects.hoover.core.trace;
+
+public interface TraceInterceptor {
+
+    void onRequestReceived(String traceId, IncomingRequest request);
+
+    void onNoMappingFound(String traceId, IncomingRequest request);
+
+    void onForwardStart(String traceId, ForwardRequest forwardRequest);
+
+    void onForwardError(String traceId, Throwable error);
+
+    void onForwardComplete(String traceId, ReceivedResponse response);
+}
