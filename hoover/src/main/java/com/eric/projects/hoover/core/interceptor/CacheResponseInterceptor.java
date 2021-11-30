@@ -6,7 +6,7 @@ import org.springframework.http.HttpHeaders;
 
 import java.util.List;
 
-public class CacheResponseInterceptor implements PostForwardRequestInterceptor {
+public class CacheResponseInterceptor implements PostForwardResponseInterceptor {
     @Override
     public void intercept(ResponseData data, MappingProperties mapping) {
         HttpHeaders headers = data.getHeaders();

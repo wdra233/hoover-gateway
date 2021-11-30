@@ -14,6 +14,17 @@ public class UnmodifiableRequestData {
     protected HttpHeaders headers;
     protected byte[] body;
     protected HttpServletRequest originRequest;
+    public UnmodifiableRequestData(RequestData requestData) {
+        this(
+                requestData.getMethod(),
+                requestData.getHost(),
+                requestData.getUri(),
+                requestData.getHeaders(),
+                requestData.getBody(),
+                requestData.getOriginRequest()
+        );
+    }
+
     public UnmodifiableRequestData(HttpMethod method, String uri, String host, HttpHeaders httpHeaders, byte[] body, HttpServletRequest originRequest) {
         this.method = method;
         this.uri = uri;
